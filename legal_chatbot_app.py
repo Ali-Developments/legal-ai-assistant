@@ -29,7 +29,6 @@ os.environ["TOKENIZERS_PARALLELISM"] = "false"
 # =======================
 # Setup
 # =======================
-load_dotenv()
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
 PDF_DIR = "laws_pdfs"
@@ -175,3 +174,4 @@ if st.button("🔍 اسأل"):
                 st.markdown(
                     f"**صفحة:** {doc.metadata.get('page', 'غير معروف')}"
                 )
+
