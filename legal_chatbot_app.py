@@ -1,27 +1,32 @@
 import os
 import streamlit as st
+import warnings
+import logging
 
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
-
 from langchain_core.prompts import PromptTemplate
 from langchain_core.runnables import RunnablePassthrough
-
 from langchain_groq import ChatGroq
-import warnings
-import logging
-import os
 
-# Hide warnings
+# =======================
+# Secrets (Streamlit Cloud)
+# =======================
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+
+if not GROQ_API_KEY:
+    st.error("❌ GROQ_API_KEY غير موجود في Secrets")
+    st.stop()
+
+# =======================
+# Clean logs
+# =======================
 warnings.filterwarnings("ignore")
-
-# Silence pypdf logs
 logging.getLogger("pypdf").setLevel(logging.ERROR)
 logging.getLogger("langchain").setLevel(logging.ERROR)
 logging.getLogger("sentence_transformers").setLevel(logging.ERROR)
-
 
 
 # =======================
@@ -171,6 +176,7 @@ if st.button("🔍 اسأل"):
                 st.markdown(
                     f"**صفحة:** {doc.metadata.get('page', 'غير معروف')}"
                 )
+
 
 
 
