@@ -23,7 +23,6 @@ logging.getLogger("pypdf").setLevel(logging.ERROR)
 logging.getLogger("langchain").setLevel(logging.ERROR)
 logging.getLogger("sentence_transformers").setLevel(logging.ERROR)
 
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
 # =======================
@@ -173,5 +172,6 @@ if st.button("🔍 اسأل"):
                 st.markdown(
                     f"**صفحة:** {doc.metadata.get('page', 'غير معروف')}"
                 )
+
 
 
