@@ -39,10 +39,10 @@ os.makedirs(PDF_DIR, exist_ok=True)
 # =======================
 # Streamlit Config
 # =======================
-st.set_page_config(page_title="⚖️ Legal AI Assistant", layout="wide")
+st.set_page_config(page_title="⚖️ COURTRIX ", layout="wide")
 
-st.title("⚖️ Legal AI Assistant")
-st.caption("مساعد قانوني ذكي للمحامين | LangChain 1.2.7 + Groq")
+st.title("⚖️ COURTRIX ")
+st.caption("مساعد قانوني ذكي للمحامين")
 
 # =======================
 # Sidebar – Upload PDFs
@@ -176,6 +176,7 @@ if st.button("🔍 اسأل"):
                 st.markdown(
                     f"**صفحة:** {doc.metadata.get('page', 'غير معروف')}"
                 )
+
 
 
 
